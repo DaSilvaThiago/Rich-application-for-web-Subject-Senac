@@ -1,1 +1,1 @@
-Her i'll commiting my progress though classes from rich application for web.
+Here i'll commiting my progress through classes from rich application for web.
