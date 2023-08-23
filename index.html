@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web storage example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>First Class task</h1>
+    <p id="showName"></p>
+    <button onclick="appear()">Options</button>
+    <main id="form">
+        <fieldset>
+            <legend>Web Storage</legend>
+            <form name="setForm">
+                <label for="fname" class="formTxt">Name: </label>
+                <input id="name" type="text" name="fname">
+                <hr>
+                <label for="fcolor" >Background-color: </label>
+                <br>
+                <label for="fcolor1">Red</label>
+                <input onclick="SetColor(1,'red')" type="radio" name="fcolor1" value="red">
+                <br>
+                <label for="fcolor1">Blue</label>
+                <input onclick="SetColor(1,'blue')" type="radio" name="fcolor1" value="blue">
+                <br>
+                <label for="fcolor1">Green</label>
+                <input onclick="SetColor(1,'green')" type="radio" name="fcolor1" value="green">
+                <hr>
+                <label for="fcolor" class="formTxt">Text-color: </label>
+                <br>
+                <label for="fcolor1">White</label>
+                <input onclick="SetColor(0,'white')" type="radio" name="ftext" value="white">
+                <br>
+                <label for="fcolor1">Black</label>
+                <input onclick="SetColor(0,'black')" type="radio" name="ftext" value="black">
+                <br>
+                <label for="fcolor1">Yellow</label>
+                <input onclick="SetColor(0,'yellow')" type="radio" name="ftext" value="yellow">
+                <hr>
+                <label for="font" class="formTxt">Font: </label>
+                <br>
+                <label for="font">Impact</label>
+                <input onclick="setFont('Impact')" type="radio" name="font" value="Impact">
+                <br>
+                <label for="font">Lucida Sans</label>
+                <input onclick="setFont('Lucida Sans')" type="radio" name="font" value="Lucida Sans">
+                <br>
+                <label for="font">monospace</label>
+                <input onclick="setFont('monospace')" type="radio" name="font" value="monospace">
+                <hr>
+                <button onclick="Save()" type="button">Save</button>
+            </form>
+        </fieldset>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
