@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function draw() {
+            let figure = document.querySelector('#myScreen');
+            if (figure.getContext) {
+                let circle = figure.getContext('2d');
+                circle.fillStyle = "blue";
+                //to start a new path for your design without lost the real and unique path, tolk about the .beginPath.
+                circle.beginPath();
+                circle.arc(200,200,50,0,2, 2 * Math.PI);
+                circle.fill()
+            }
+        }
+        window.addEventListener("load", draw);
+        // window.onload = draw;
+    </script>
+</head>
+<body>
+    <canvas id="myScreen" width="800" height="600"></canvas>
+</body>
+</html>

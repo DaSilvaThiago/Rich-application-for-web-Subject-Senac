@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function draw() {
+            let figure = document.querySelector('#myScreen');
+            if (figure.getContext) {
+                let retangule = figure.getContext('2d');
+                retangule.fillStyle = "blue";
+                retangule.fillRect(50,50,300,400)
+            }
+        }
+        window.onload = draw;
+    </script>
+</head>
+<body>
+    <canvas id="myScreen" width="800" height="600"></canvas>
+</body>
+</html>

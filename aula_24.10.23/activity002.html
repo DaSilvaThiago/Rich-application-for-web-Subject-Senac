@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function desenhar() {
+            var figura = document.querySelector("#minhaTela");
+
+            if(figura.getContext) {
+                                
+                let quad = figura.getContext("2d");
+                let quad1 = figura.getContext("2d");
+                let quad2 = figura.getContext("2d");
+                let quad3 = figura.getContext("2d");
+                let posX = 0;
+                let posX2 = figura.width
+                let posX3 = 0;
+                let posX4 = figura.height
+
+                function animate() {
+                    quad.clearRect(0,0, figura.width, figura.height);
+                    //quad1.clearRect(0,0, figura.width, figura.height);
+
+                    quad.fillStyle = "blue";
+                    quad.fillRect(posX, 50, 50, 50);
+                    quad.fill();
+
+                    quad1.fillStyle = "yellow";
+                    quad1.fillRect(posX2, 150, 50, 50);
+                    quad1.fill();
+
+                    quad2.fillStyle = "green";
+                    quad2.fillRect(50, posX3, 50, 50);
+                    quad2.fill();
+
+                    quad2.fillStyle = "red";
+                    quad2.fillRect(500, posX4, 50, 50);
+                    quad2.fill();
+
+                    posX +=5;
+                    posX2 -=5;
+                    posX3 +=5;
+                    posX4 -=5;
+
+                    if(posX > figura.width) {
+                        posX = 0;
+                    }
+
+                    if(posX2 < 0) {
+                        posX2 = figura.width;
+                    }
+
+                    if(posX3 > figura.height) {
+                        posX3 = 0;
+                    }
+
+                    if(posX4 < 0) {
+                        posX4 = figura.height;
+                    }
+
+
+                    requestAnimationFrame(animate);
+                }
+                requestAnimationFrame(animate);
+                
+            }   
+        }
+
+
+            
+
+        window.onload = desenhar;
+    </script>
+</head>
+<body>
+    <canvas id="minhaTela" height="900" width="900">
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function draw() {
+            let figure = document.querySelector('#myScreen');
+            if (figure.getContext) {
+                let line = figure.getContext('2d');
+                line.lineWidth= 5;
+                line.strokeStyle = "blue";
+                line.moveTo(100,200);
+                line.lineTo(170,100);
+                line.lineTo(240,300);
+                line.stroke();
+            }
+        }
+        window.onload = draw;
+    </script>
+</head>
+<body>
+    <canvas id="myScreen" width="800" height="600"></canvas>
+</body>
+</html>

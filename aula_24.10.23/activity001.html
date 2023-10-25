@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function draw(){
+            var figure = document.querySelector("#myCanvas");
+            if (figure.getContext) {
+                var retangule = figure.getContext("2d");
+                var line = figure.getContext("2d");
+                var circle = figure.getContext("2d");                
+            }
+            function animateCircle(time){
+                circle.clearRect(0,0, figure.width, figure.height);
+                
+                retangule.fillStyle = "blue";
+                retangule.fillRect(50,50,400,200);
+
+                line.lineWidth= 5;
+                line.strokeStyle = "ligth-blue";
+                line.moveTo(100,200);
+                line.lineTo(170,100);
+                line.lineTo(240,300);
+                line.stroke();
+
+                circle.fillStyle = "yellow";
+                circle.beginPath();
+                circle.arc(200,200,37.5+37.5 * Math.sin(time/120),0,2 * Math.PI);
+                circle.fill();
+                circle.strokeStyle = "aqua";
+                circle.stroke();
+
+                requestAnimationFrame(animateCircle);
+            }
+            requestAnimationFrame(animateCircle);
+        }
+        window.onload = draw;
+        document.addEventListener("load", draw);
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="700"></canvas>
+</body>
+</html>
