@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+        div{
+            border: 1px solid black;
+            width: 340px;
+            height: 100px;
+            padding: 10px;
+            display: block}
+    </style>
+</head>
+
+<body>
+    <p>Arraste a imagem para dentro do retangulo</p>
+    <div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img src="https://travel.usnews.com/images/Palm_Beach-fokkebok-Getty.jpg" id="drag1" width="330" height="100" draggable="true" ondragstart="drag(event)">
+    </div>
+    <div id="div2" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+    <div id="div3" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+    <div id="div4" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+    
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();}
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);}
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));}
+    </script>
+</body>
+</html>

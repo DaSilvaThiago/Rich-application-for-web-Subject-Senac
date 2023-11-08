@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{font-size: 28px;}
+        div{width: 230px; height: 80px; background-color: antiquewhite;}
+    </style>
+</head>
+<body>
+    
+    <div id="target" ondrop="drop(ev)" ondragover="allowDrop(ev)"></div>
+    <p draggable="true" ondragstart="drag(ev)" id="drag">Draggable element!</p>
+    
+    
+    
+    
+    <script>
+        function drag(ev){
+            ev.dataTransfer.setData("text", ev.target.id);}
+
+        function allowDrop(ev){
+            ev.preventDefault();} 
+
+        function drop(ev){
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data))}
+    </script>
+</body>
+</html>

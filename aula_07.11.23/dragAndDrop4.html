@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <style>
+        .divGrandFather{
+            display: flex;
+            gap: 15px;}
+        .divFather {
+            flex-direction: column;
+            background-color: bisque;}
+        .divChild {
+            margin-bottom: 8px;
+            height: 100px;
+            width: 330px;
+            border: 1px solid black;
+            padding-left: 35px;
+            padding-right: 35px;
+            margin: 16px;}
+    </style>
+</head>
+<body>
+    <p>Arraste a imagem para dentro do retangulo</p>
+    <div class="divGrandFather">
+        <div class="divFather">
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <img src="https://travel.usnews.com/images/Palm_Beach-fokkebok-Getty.jpg" id="drag1" width="330"
+                    height="100" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        </div>
+        <div class="divFather">
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="divChild" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        </div>
+    </div>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();}
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);}
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));}
+    </script>
+</body>
+</html>
